@@ -5,11 +5,13 @@
 
 struct task
 {
+    // Max 70 character
     char *name;
+    // Max 500 character
     char *description;
 
     struct tm deadline;
-}
+};
 
 void list_tasks();
 
