@@ -7,7 +7,7 @@ void list_tasks(struct tasks_list *head)
 {
     int start = 0;
 
-    FILE *tasks = fopen("~/home/todo-list/tasks.csv", "r");
+    FILE *tasks = fopen("~/home/.todo-list/tasks.csv", "r");
     if (tasks == NULL)
     {
         fprintf(stderr, "Error during file opening\n");
