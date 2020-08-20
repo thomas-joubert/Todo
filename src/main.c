@@ -15,10 +15,7 @@ int main(int argc, char *argv[])
     }
     
     if (argc == 1)
-    {
-        //list_tasks(head)
-        puts("fine");
-    }
+        list_tasks(head);
     else
     {
         printf("%d\n", argc);
