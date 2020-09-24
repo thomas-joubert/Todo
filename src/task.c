@@ -5,7 +5,6 @@
 #include <string.h>
 
 #include "task.h"
-#include "linked_tasks.h"
 
 void list_tasks(struct tasks_list *head)
 {
@@ -34,14 +33,22 @@ void list_tasks(struct tasks_list *head)
     while (getline(&line, &size_max, tasks) != -1)
     {
         if (!start)
-        {
             start++;
-            continue;
+        else
+        {
+            int id = atoi(strtok(line, ";"));
+            char *name = strtok(NULL, ";");
+            char *description = strtok(NULL, ";");
+
+            printf("%d\n%s\n%s\n", id, name, description);
         }
-
-        char *name = strtok(line, ";");
-        char *description = strtok(NULL, ";");
-
-        printf("%s\n%s\n", name, description);
     }
+}
+
+void print_tasks(struct tasks_list *head)
+{
+    if (!head)
+        return;
+
+    puts("PRINT");
 }
