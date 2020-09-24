@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "task.h"
+#include "task/task.h"
 #include "linked_tasks.h"
+#include "utils.h"
 
 int main(int argc, char *argv[])
 {
