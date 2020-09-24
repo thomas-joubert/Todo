@@ -15,7 +15,10 @@ int main(int argc, char *argv[])
     }
     
     if (argc == 1)
+    {
         list_tasks(head);
+        print_tasks(head);
+    }
     else
     {
         printf("%d\n", argc);
