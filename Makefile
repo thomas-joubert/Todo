@@ -3,8 +3,8 @@ CFLAGS= -Werror -Wall -Wextra -std=c99 -pedantic -g
 LDFLAGS= -fsanitize=address
 DEBUG= -g
 
-SRC=src/main.c src/task.c src/linked_tasks.c
-OBJS=src/main.o src/task.o src/linked_tasks.o
+SRC=src/main.c src/task/task.c src/linked_tasks.c
+OBJS=src/main.o src/task/task.o src/linked_tasks.o
 
 TARGET=todo
 
