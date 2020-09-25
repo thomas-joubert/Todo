@@ -1,7 +1,7 @@
 #ifndef LINKED_TASK_H
 #define LINKED_TASK_H
 
-#include "task.h"
+#include "task/task.h"
 
 struct tasks_list
 {
