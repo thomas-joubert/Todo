@@ -49,6 +49,4 @@ void print_tasks(struct tasks_list *head)
 {
     if (!head)
         return;
-
-    puts("PRINT");
 }
