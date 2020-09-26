@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
         }
     }
 
+    // If the binary is used without options, no need to free
     if (opt)
     {
         free(opt->arg);
