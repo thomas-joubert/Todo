@@ -4,18 +4,18 @@
 #include <stdio.h>
 
 void help(void);
-void option_parser(int argc, char *argv[]);
+struct single_option * option_parser(int argc, char *argv[]);
 
-enum options
+enum type
 {
-    HELP = 0,
-    ADD,
+    ADD = 0,
+    HELP,
     DELETE
 };
 
-struct option
+struct single_option
 {
-    enum options type;
+    enum type opt_type;
     char *arg;
 };
 
