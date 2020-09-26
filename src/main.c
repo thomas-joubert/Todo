@@ -33,8 +33,12 @@ int main(int argc, char *argv[])
         }
     }
 
-    free(opt->arg);
-    free(opt);
+    if (opt)
+    {
+        free(opt->arg);
+        free(opt);
+    }
+
     free(head);
 
     return 0;
