@@ -15,6 +15,7 @@ all : $(TARGET)
 check :
 	$(CC) $(CFLAGS) $(TESTFLAGS) $(TESTSRC) -o check
 	./check
+	rm check
 
 debug :
 	$(CC) $(DEBUG) $(SRC) -o debug
