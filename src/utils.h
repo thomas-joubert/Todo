@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 void help(void);
-struct single_option * option_parser(int argc, char *argv[]);
+struct single_option *option_parser(int argc, char *argv[]);
 
 enum type
 {

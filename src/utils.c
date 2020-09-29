@@ -7,14 +7,30 @@
 
 #include "utils.h"
 
+// Standard help message
+#ifndef DEF_TESTS
+
 void help(void)
 {
     puts("USAGE : ./todo <options>");
     puts("\tno options : show the task list");
-    puts("\t-a / --add <task> : create a new task");
-    puts("\t-d / --delete <task or number> : delete a task");
-    puts("\t-h / --help : show this message");
+    puts("\t-a | --add <task> : create a new task");
+    puts("\t-d | --delete <task or number> : delete a task");
+    puts("\t-h | --help : show this message");
 }
+
+#endif
+
+// help() implementation in case of testing
+#ifdef DEF_TESTS
+
+void help(void)
+{
+    return;
+}
+
+#endif
+
 
 struct single_option *option_parser(int argc, char *argv[])
 {
