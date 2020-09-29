@@ -2,11 +2,6 @@
 
 #include "../src/utils.h"
 
-void help_dummy(void)
-{
-    return;
-}
-
 Test(option, false_option)
 {
     int argc = 2;
