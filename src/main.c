@@ -9,6 +9,8 @@
 int main(int argc, char *argv[])
 {
     struct tasks_list *head = calloc(sizeof(struct tasks_list), 1);
+    struct single_option *opt = NULL;
+
     if (!head)
     {
         fprintf(stderr, "Calloc failed\n");
@@ -22,10 +24,23 @@ int main(int argc, char *argv[])
     }
     else
     {
-        printf("%d\n", argc);
-        printf("%s\n", argv[0]);
-        puts("Not fine");
+        opt = option_parser(argc, argv);
+        if (opt->opt_type == HELP)
+        {
+            free(opt);
+            free(head);
+            return 1;
+        }
     }
+
+    // If the binary is used without options, no need to free
+    if (opt)
+    {
+        free(opt->arg);
+        free(opt);
+    }
+
+    free(head);
 
     return 0;
 }
