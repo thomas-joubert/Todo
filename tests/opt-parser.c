@@ -9,7 +9,8 @@ Test(option, false_option)
 
     struct single_option *opt = option_parser(argc, argv);
 
-    cr_assert(opt->arg == NULL, "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
+    cr_assert(opt->arg == NULL,
+            "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
     cr_assert(opt->opt_type == HELP,
             "Expected opt->opt_type to be of type HELP\n");
 }
@@ -21,7 +22,8 @@ Test(option, help)
 
     struct single_option *opt = option_parser(argc, argv);
 
-    cr_assert(opt->arg == NULL, "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
+    cr_assert(opt->arg == NULL,
+            "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
     cr_assert(opt->opt_type == HELP,
             "Expected opt->opt_type to be of type HELP\n");
 }
@@ -33,7 +35,8 @@ Test(option, add)
 
     struct single_option *opt = option_parser(argc, argv);
 
-    cr_assert(strcmp(opt->arg, "Hello") == 0, "Expected opt->arg to be \"Hello\", opt->arg == %s\n", opt->arg);
+    cr_assert(strcmp(opt->arg, "Hello") == 0,
+            "Expected opt->arg to be \"Hello\", opt->arg == %s\n", opt->arg);
     cr_assert(opt->opt_type == ADD,
             "Expected opt->opt_type to be of type ADD\n");
 }
@@ -45,7 +48,8 @@ Test(option, delete)
 
     struct single_option *opt = option_parser(argc, argv);
 
-    cr_assert(strcmp(opt->arg, "Hello") == 0, "Expected opt->arg to be \"Hello\", opt->arg == %s\n", opt->arg);
+    cr_assert(strcmp(opt->arg, "Hello") == 0,
+            "Expected opt->arg to be \"Hello\", opt->arg == %s\n", opt->arg);
     cr_assert(opt->opt_type == DELETE,
             "Expected opt->opt_type to be of type DELETE\n");
 }
@@ -57,7 +61,8 @@ Test(option, add_no_arg)
 
     struct single_option *opt = option_parser(argc, argv);
 
-    cr_assert(opt->arg == NULL, "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
+    cr_assert(opt->arg == NULL,
+            "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
     cr_assert(opt->opt_type == HELP,
             "Expected opt->opt_type to be of type HELP\n");
 }
@@ -69,7 +74,8 @@ Test(option, delete_no_arg)
 
     struct single_option *opt = option_parser(argc, argv);
 
-    cr_assert(opt->arg == NULL, "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
+    cr_assert(opt->arg == NULL,
+            "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
     cr_assert(opt->opt_type == HELP,
             "Expected opt->opt_type to be of type HELP\n");
 }
@@ -81,7 +87,8 @@ Test(option, help_with_opt)
 
     struct single_option *opt = option_parser(argc, argv);
 
-    cr_assert(opt->arg == NULL, "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
+    cr_assert(opt->arg == NULL,
+            "Expected opt->arg to be NULL, opt->arg == %s\n", opt->arg);
     cr_assert(opt->opt_type == HELP,
             "Expected opt->opt_type to be of type HELP\n");
 }
