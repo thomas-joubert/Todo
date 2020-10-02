@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Calloc failed\n");
         exit(4);
     }
-    
+
     if (argc == 1)
     {
         list_tasks(head);
