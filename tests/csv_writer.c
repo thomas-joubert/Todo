@@ -14,18 +14,18 @@ int file_size(FILE *file)
 
 Test(csv_writer, empty_arg)
 {
-    FILE *file = fopen("tests.csv");
+    FILE *file = fopen("tests.csv", "w+");
 
     if (file == NULL)
-        err("Error during file opening\n");
+        err(-3, "Error during file opening\n");
 
-    struct single_option *opt =
+    struct single_option opt =
     {
         ADD, NULL
     };
 
     int file_state_b = file_size(file);
-    int ret = csv_writer(opt);
+    int ret = csv_writer(&opt, file);
     int file_state_a = file_size(file);
 
     cr_assert_eq(ret, -1, "Bad return value, should have returned -1, \
