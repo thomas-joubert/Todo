@@ -6,7 +6,7 @@ DEBUG= -g
 
 SRC=src/main.c src/task/task.c src/linked_tasks.c src/utils.c
 OBJS=src/main.o src/task/task.o src/linked_tasks.o src/utils.o
-TESTSRC=tests/opt-parser.c src/utils.c
+TESTSRC=tests/opt-parser.c src/utils.c src/writing.c tests/csv_writer.c
 
 TARGET=todo
 
