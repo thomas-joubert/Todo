@@ -6,6 +6,7 @@
 #include "task/task.h"
 #include "linked_tasks.h"
 #include "utils.h"
+#include "writing.h"
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +16,7 @@ int main(int argc, char *argv[])
         err(-3, "Calloc failed\n");
 
     struct single_option *opt = NULL;
+    int writing_result = 0;
 
     FILE *file = fopen("/home/thomas/.todo-list/tasks.csv", "w+");
     if (!file)
@@ -28,11 +30,23 @@ int main(int argc, char *argv[])
     else
     {
         opt = option_parser(argc, argv);
-        if (opt->opt_type == HELP)
+
+        switch (opt->opt_type)
         {
-            free(opt);
-            free(head);
-            return 1;
+            case HELP:
+                free(opt);
+                free(head);
+                return 1;
+
+            case ADD:
+                writing_result = csv_writer(opt, file);
+                if (writing_result == -1)
+                    fprintf(stderr, "Creation failed\n");
+                break;
+
+            case DELETE:
+                printf("FIXME : delete a task\n");
+                break;
         }
     }
 
