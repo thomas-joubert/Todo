@@ -12,11 +12,11 @@ int main(int argc, char *argv[])
 {
     if (argc == 1)
     {
+        struct tasks_list *head = calloc(sizeof(struct tasks_list), 1);
         list_tasks(head);
         print_tasks(head);
     }
 
-    struct tasks_list *head = calloc(sizeof(struct tasks_list), 1);
 
     if (!head)
         err(-3, "Calloc failed\n");
