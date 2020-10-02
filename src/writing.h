@@ -3,6 +3,7 @@
 
 #include "utils.h"
 
-int add_task(struct single_option *opt);
+// Take a task an option (add), and write the corresponding task into a csv file
+int csv_writer(struct single_option *opt);
 
 #endif
