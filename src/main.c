@@ -10,6 +10,12 @@
 
 int main(int argc, char *argv[])
 {
+    if (argc == 1)
+    {
+        list_tasks(head);
+        print_tasks(head);
+    }
+
     struct tasks_list *head = calloc(sizeof(struct tasks_list), 1);
 
     if (!head)
@@ -22,32 +28,24 @@ int main(int argc, char *argv[])
     if (!file)
         err(-2, "Error during file opening");
 
-    if (argc == 1)
+    opt = option_parser(argc, argv);
+
+    switch (opt->opt_type)
     {
-        list_tasks(head);
-        print_tasks(head);
-    }
-    else
-    {
-        opt = option_parser(argc, argv);
+        case HELP:
+            free(opt);
+            free(head);
+            return 1;
 
-        switch (opt->opt_type)
-        {
-            case HELP:
-                free(opt);
-                free(head);
-                return 1;
+        case ADD:
+            writing_result = csv_writer(opt, file);
+            if (writing_result == -1)
+                fprintf(stderr, "Creation failed\n");
+            break;
 
-            case ADD:
-                writing_result = csv_writer(opt, file);
-                if (writing_result == -1)
-                    fprintf(stderr, "Creation failed\n");
-                break;
-
-            case DELETE:
-                printf("FIXME : delete a task\n");
-                break;
-        }
+        case DELETE:
+            printf("FIXME : delete a task\n");
+            break;
     }
 
     // If the binary is used without options, no need to free
