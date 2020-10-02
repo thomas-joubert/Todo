@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <err.h>
 
 #include "task/task.h"
 #include "linked_tasks.h"
@@ -15,7 +16,7 @@ int main(int argc, char *argv[])
 
     struct single_option *opt = NULL;
 
-    FILE *file = fopen("~/.todo-list/tasks.csv", "w+");
+    FILE *file = fopen("/home/thomas/.todo-list/tasks.csv", "w+");
     if (!file)
         err(-2, "Error during file opening");
 
