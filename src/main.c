@@ -9,17 +9,15 @@
 int main(int argc, char *argv[])
 {
     struct tasks_list *head = calloc(sizeof(struct tasks_list), 1);
-    struct single_option *opt = NULL;
-
-    FILE *file = fopen("~/.todo-list/tasks.csv");
-    if (!file)
-        err("Error during file opening");
 
     if (!head)
-    {
-        fprintf(stderr, "Calloc failed\n");
-        exit(4);
-    }
+        err(-3, "Calloc failed\n");
+
+    struct single_option *opt = NULL;
+
+    FILE *file = fopen("~/.todo-list/tasks.csv", "w+");
+    if (!file)
+        err(-2, "Error during file opening");
 
     if (argc == 1)
     {
