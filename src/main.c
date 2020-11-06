@@ -13,13 +13,13 @@ int main(int argc, char *argv[])
     if (argc == 1)
     {
         struct tasks_list *head = calloc(sizeof(struct tasks_list), 1);
+        if (!head)
+            err(-3, "Calloc failed\n");
         list_tasks(head);
         print_tasks(head);
+        free(head);
+        return 0;
     }
-
-
-    if (!head)
-        err(-3, "Calloc failed\n");
 
     struct single_option *opt = NULL;
     int writing_result = 0;
@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
     {
         case HELP:
             free(opt);
-            free(head);
             return 1;
 
         case ADD:
@@ -54,8 +53,6 @@ int main(int argc, char *argv[])
         free(opt->arg);
         free(opt);
     }
-
-    free(head);
 
     return 0;
 }
