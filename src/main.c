@@ -6,7 +6,7 @@
 #include "task/task.h"
 #include "linked_tasks.h"
 #include "utils.h"
-#include "writing.h"
+#include "csv.h"
 
 int main(int argc, char *argv[])
 {
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     // If the binary is used without options, no need to free
     if (opt)
     {
-        free(opt->arg);
+        free(opt->task);
         free(opt);
     }
 

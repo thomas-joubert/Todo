@@ -16,7 +16,7 @@ enum type
 struct single_option
 {
     enum type opt_type;
-    char *arg;
+    char *task;
 };
 
 #endif

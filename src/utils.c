@@ -51,7 +51,7 @@ struct single_option *option_parser(int argc, char *argv[])
         {
             case 'a':
                 opt->opt_type = ADD;
-                opt->arg = strdup(optarg);
+                opt->task = strdup(optarg);
                 break;
             case 'h':
                 help();
@@ -59,7 +59,7 @@ struct single_option *option_parser(int argc, char *argv[])
                 break;
             case 'd':
                 opt->opt_type = DELETE;
-                opt->arg = strdup(optarg);
+                opt->task = strdup(optarg);
                 break;
             default :
                 opt->opt_type = HELP;
