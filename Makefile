@@ -4,8 +4,7 @@ LDFLAGS= -fsanitize=address
 TESTFLAGS= -lcriterion -DDEF_TESTS
 DEBUG= -g
 
-SRC=src/main.c src/task/task.c src/linked_tasks.c src/utils.c src/writing.c
-OBJS= $(SRC:.c=.o)
+OBJS=src/main.o src/task/task.o src/linked_tasks.o src/utils.o src/csv.o
 TESTSRC=tests/opt-parser.c src/utils.c src/writing.c tests/csv_writer.c
 
 TARGET=todo
